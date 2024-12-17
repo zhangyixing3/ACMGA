@@ -45,7 +45,7 @@ def make_paf_alignments(event_tree_string, event_names_to_sequences, ancestor_ev
     global event_tree_str,i,ancestorevent
     event_tree_str=event_tree_string
     i = i + 1
-    print("mkdir " +PATH+"subtree"+str(i))
+    print("mkdir -p " +PATH+"subtree"+str(i))
     event_tree = newickTreeParser(event_tree_string)
     ancestor_event = get_node(event_tree, ancestor_event_string)
     ancestorevent = ancestor_event.iD
@@ -197,7 +197,7 @@ def make_ingroup_to_outgroup_alignments_1(ingroup_event, outgroup_events, event_
             print("cat " +  PATH + genome_a_Variety + "_" + genome_b_Variety +".anchorwave.paf"+"     "+PATH+oldgenome_a_Variety+"_"+oldgenome_b_Variety+".anchorwave.paf" + " > " +  PATH + 'cat_'+oldgenome_a_Variety+'_'+oldgenome_b_Variety+'_'+genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave.paf")
         print("cat " +PATH + 'cat_'+oldgenome_a_Variety+'_'+oldgenome_b_Variety+'_'+genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave.paf" + " > " + PATH + genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave_invert.paf")
         print("paffy  invert -i " + PATH + 'cat_'+oldgenome_a_Variety+'_'+oldgenome_b_Variety+'_'+genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave.paf" + " >> " +PATH + genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave_invert.paf")
-        print("paffy  chain-i " +PATH + genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave_invert.paf" + " --maxGapLength 1000000 --chainGapOpen 5000 --chainGapExtend 1 --trimFraction 0.02 --logLevel DEBUG " + " >> "+PATH+'subtree'+str(i)+"/anchorwave_chain.paf")
+        print("paffy  chain -i " +PATH + genome_a_Variety + "_" + genome_b_Variety + ".2.anchorwave_invert.paf" + " --maxGapLength 1000000 --chainGapOpen 5000 --chainGapExtend 1 --trimFraction 0.02 --logLevel DEBUG " + " >> "+PATH+'subtree'+str(i)+"/anchorwave_chain.paf")
 
 def make_chunked_alignments( event_a, genome_a, event_b, genome_b, distance, params):
     print("\n" + "#m============================================================================================================================================================================================================================="+str(i) + "\n")
