@@ -80,7 +80,7 @@ The original code can be found at https://github.com/HFzzzzzzz/ACMGA, and my aim
 	#### 2、Generate `command.sh` (bash script for the entire process)
 	```
 	cd ACMGA
-	snakemake  -j 5 --configfile config/config.yaml   
+ 	snakemake  -j 5 --configfile config/config.yaml  --use-singularity   
 	```
 	#### 3、Run `command.sh`
 	```
